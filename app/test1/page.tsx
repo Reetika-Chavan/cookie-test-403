@@ -6,13 +6,8 @@ export default function Test1() {
   const [cookies, setCookies] = useState<string>("");
 
   useEffect(() => {
-    // Set cookies for test page 1
-    const timestamp = Date.now();
-
-    document.cookie = `test1_session=${timestamp}; path=/; max-age=3600`;
-    document.cookie = `test1_data=test_data_${timestamp}; path=/; max-age=3600`;
-    document.cookie = `test1_third_party=3p_test1_${timestamp}; path=/; max-age=3600; SameSite=None; Secure`;
-    document.cookie = `test1_cookie=value_${timestamp}; path=/; max-age=3600`;
+    // Set invoca session cookie
+    document.cookie = `invoca_session=%7B%22ttl%22%3A%222025-12-01T15%3A58%3A40.163Z%22%2C%22session%22%3A%7B%22invoca_id%22%3A%22i-2c74663c-fb00-44f0-db2d-8668a632ff21%22%7D%2C%22config%22%3A%7B%22ce%22%3Atrue%2C%22fv%22%3Afalse%2C%22rn%22%3Afalse%7D%7D; path=/; max-age=3600`;
 
     // Display all cookies
     setCookies(document.cookie);

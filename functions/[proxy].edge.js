@@ -1,7 +1,11 @@
-export default async function handleRequest(request) {
-  const url = new URL(request.url);
-  if (url.pathname === "/test1") {
-    return Response.redirect("/test2", 302);
+export default async function handler(request) {
+  const modifiedUrl = new URL(request.url);
+  const route = modifiedUrl.pathname;
+
+  if (route === "/test1") {
+    modifiedUrl.pathname = "/test2";
+    return Response.redirect(modifiedUrl, 301);
   }
+
   return fetch(request);
 }
